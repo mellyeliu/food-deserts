@@ -4,31 +4,9 @@ import collections
 # each tract is 2.5 miles x 2.5 miles in size
 
 #NOTE: consider expanding each tract into a 3x3 representation in the matrices to have more data points
-populationDensityMap = [[-1,-1,3257,4080,-1,-1,-1, -1, -1,-1,-1],
-[-1	,		-1,	4843,	1787,		-1,		-1,		-1, 	-1, 	-1, 	-1,		-1],
-[442,	1876,	1307,	1277,	1120,	3276,	3585,	1569, 	-1,		-1,	4601],
-[4023,	842,4698,1288,1336,4083,2614, 4500, 5063, 3061,3208],
-[4152,4938,5918,2567,3413,2865,2892, 70, 65,35, 2982],
-[3022,5116,6685,2993,1439,1787,1954, 1463, 1473, -1,-1],
-[1105,4234,5490,3044,4583,4066,4537, 2679, 4050,-1,-1],
-[1268,2216,4321,6647,4668,4206,3227, 1628, 2772,1567,-1],
-[1225,877,901,5536,4900,6206,6748,11080, 3262, -1,-1],
-[2325,2281,3285,3170,44,37,31,5773,8398, -1, -1],
-[3099,2414,3157,2012,41,33,17,4407, -1, -1,-1],
-[1370,2118,2938,931,34,24,22,-1, -1, -1,-1]]
+populationDensityMap = [[-1, -1, 638.63, 800.0, -1, -1, -1, -1, -1, -1, -1], [-1, -1, 949.61, 350.39, -1, -1, -1, -1, -1, -1, -1], [86.66, 367.84, 256.28, 250.39, 219.61, 642.35, 702.94, 307.65, -1, -1, 902.16], [788.82, 165.1, 921.18, 252.55, 261.96, 800.59, 512.55, 882.35, 992.75, 600.19, 629.02], [814.12, 968.24, 1160.39, 503.34, 669.22, 561.76, 567.06, 13.72, 12.75, 6.86, 584.71], [592.55, 1003.14, 1310.78, 586.86, 282.16, 350.39, 383.14, 286.86, 288.82, -1, -1], [216.66, 830.19, 1076.47, 596.86, 898.63, 797.25, 889.61, 525.29, 794.12, -1, -1], [248.63, 434.51, 847.25, 1303.34, 915.29, 824.71, 632.75, 319.22, 543.53, 307.25, -1], [240.19, 171.96, 176.66, 1085.49, 960.78, 1216.86, 1323.14, 2172.55, 639.61, -1, -1], [455.88, 447.25, 644.12, 621.57, 8.63, 7.25, 6.08, 1131.96, 1646.66, -1, -1], [607.65, 473.34, 619.02, 394.51, 8.04, 6.47, 3.34, 864.12, -1, -1, -1], [268.63, 415.29, 576.08, 182.55, 6.66, 4.71, 4.31, -1, -1, -1, -1]]# distanceMap = [[3.66,3.02,3.37,2.02,2.47,1.96,3.82,2.18,3.99,2.47,1.55],
 
-distanceMap = [[3.66,3.02,3.37,2.02,2.47,1.96,3.82,2.18,3.99,2.47,1.55],
-[3.92,3.26,3.21,1.87,1.54,2.3,2.1,2.05,3.25,1.85,1.61],
-[2.66,2.34,2.69,3.33,3.62,2.69,2.88,3.96,2.55,3.43,3.05],
-[3.41,2.77,2.81,2.89,1.79,1.57,2.75,1.9,3.64,3.34,3.78],
-[2.19,3.9,1.68,3.91,2.34,1.64,2.51,3.52,2.86,1.93,3.62],
-[2.14,3.53,2.11,2.82,2.05,3.44,3.94,2.04,2.14,3.32,3.87],
-[2.34,2.41,1.65,3.83,1.69,3.42,3.52,3.85,3.89,3.91,2.26],
-[2.73,2.86,2.03,2.75,2.05,1.62,2.02,2.49,1.76,2.87,2.82],
-[2.15,1.89,2.09,1.94,3.26,3.23,2.86,2.52,2.56,3.76,2.05],
-[3.71,2.73,3.54,2.97,1.54,2.24,2.44,3.61,2.36,3.77,3.61],
-[1.56,3.38,2.45,2.35,2.87,2.02,3.4,3.87,2.49,3.53,3.85],
-[2.75,3.98,3.94,1.97,3.4,2.71,2.8,2.07,2.86,3.35,3.46]]
+distanceMap = [[1.83, 1.51, 1.69, 1.01, 1.24, 0.98, 1.91, 1.09, 2.0, 1.24, 0.78], [1.96, 1.63, 1.6, 0.94, 0.77, 1.15, 1.05, 1.02, 1.62, 0.93, 0.81], [1.33, 1.17, 1.34, 1.67, 1.81, 1.34, 1.44, 1.98, 1.27, 1.72, 1.52], [1.71, 1.39, 1.41, 1.45, 0.9, 0.79, 1.38, 0.95, 1.82, 1.67, 1.89], [1.09, 1.95, 0.84, 1.96, 1.17, 0.82, 1.25, 1.76, 1.43, 0.96, 1.81], [1.07, 1.76, 1.05, 1.41, 1.02, 1.72, 1.97, 1.02, 1.07, 1.66, 1.94], [1.17, 1.21, 0.82, 1.92, 0.84, 1.71, 1.76, 1.93, 1.95, 1.96, 1.13], [1.36, 1.43, 1.01, 1.38, 1.02, 0.81, 1.01, 1.25, 0.88, 1.44, 1.41], [1.07, 0.94, 1.04, 0.97, 1.63, 1.61, 1.43, 1.26, 1.28, 1.88, 1.02], [1.85, 1.36, 1.77, 1.49, 0.77, 1.12, 1.22, 1.8, 1.18, 1.89, 1.8], [0.78, 1.69, 1.23, 1.18, 1.44, 1.01, 1.7, 1.94, 1.25, 1.76, 1.93], [1.38, 1.99, 1.97, 0.98, 1.7, 1.35, 1.4, 1.03, 1.43, 1.68, 1.73]]
 
 medianHouseholdIncomeMap = [[-1,-1,22829,24336,-1,-1,-1, -1, -1,-1,-1],
 [-1,-1,30508,27091,-1,-1,-1, -1, -1, -1,-1],
@@ -43,25 +21,37 @@ medianHouseholdIncomeMap = [[-1,-1,22829,24336,-1,-1,-1, -1, -1,-1,-1],
 [33262,36754,31725,34911,37763,34212,31282,25371, -1, -1,-1],
 [45781,26465,64115,45552,37763,36589,36589,-1, -1, -1,-1]]
 
-realEstatePriceMap = [[-1,-1,71244,76723,-1,-1,-1, -1, -1,-1,-1],
-[-1,-1,71823,69231,-1,-1,-1, -1, -1, -1,-1],
-[71211,69102,86121,61136,67121,78942,109123, 110162, -1,-1,148065],
-[70125,61348,66475,64721,72123,70958,64021, 100126, 72191,250123,279121],
-[80121,52123,54872,461123,58123,70165,90786, -1, -1, 395647, 399729],
-[178125,58195,70453,76412,100285,115834,385723,348576, 481272, -1,-1],
-[90176,80653,75892,79304,97382,90327,92945,110245, 140283,-1,-1],
-[60467,80128,90278,89288,86645,90172,102040,110284,90875,110243,-1],
-[80127,90767,88938,78293,72845,69437,78293,90182,105623,-1,-1],
-[79234,67328,90273,102940,110237,130283,138172,107824,107253,-1, -1],
-[120123,13048,98274,123075,130856,135276,11212,142145, -1, -1,-1],
-[100781,90465,120115,130552,120763,140589,140269,-1, -1, -1,-1]]
+realEstatePriceMap = [[-1, -1, 95421, 79106, -1, -1, -1, -1, -1, -1, -1], [-1, -1, 88831, 64734, -1, -1, -1, -1, -1, -1, -1], [65687, 64138, 122640, 81879, 86466, 105654, 98273, 150819, -1, -1, 187035], [93613, 79159, 98858, 92392, 96464, 106015, 53644, 97132, 79713, 305782, 391806], [62423, 75832, 45114, 481974, 80482, 87436, 75293, -1, -1, 566859, 535866], [258296, 51088, 92518, 86395, 130017, 173680, 441934, 360295, 450125, -1, -1], [120321, 117962, 60736, 88730, 110230, 89183, 107551, 165307, 133925, -1, -1], [87340, 62853, 108482, 86272, 110105, 68660, 134304, 159414, 96737, 137450, -1], [62825, 105430, 70547, 77557, 63230, 96554, 97190, 106168, 96344, -1, -1], [71866, 56189, 135008, 99699, 135171, 158198, 137117, 139551, 82022, -1, -1], [175360, 12190, 128965, 134306, 142671, 135999, 11900, 133986, -1, -1, -1], [147961, 86648, 173485, 147230, 123343, 144978, 210331, -1, -1, -1, -1]]
+count = 0
+total_sum = 0
 
-distanceCap = 12.94
+for n in range(len(realEstatePriceMap)):
+    for m in range(len(realEstatePriceMap[0])):
+        if realEstatePriceMap[n][m] != -1:
+            total_sum += realEstatePriceMap[n][m]
+            count += 1
+            
+realEstateAverage = total_sum / count
+distanceCap = 8 #12.94
+budget = 4000000
 
-def buildingCost(size, locationCostRatio):
+def buildingCostBase(locationCost):
+  locationCostRatio = locationCost / realEstateAverage
+  return locationCostRatio * 25000
+
+def buildingCostSize(size, locationCost):
+  locationCostRatio = locationCost / realEstateAverage
   utilityCost = ( 9.17 + 2.61 + 3.59 + 1.81 + 0.93 + 1.43 + 3.85 + 2.76 ) * ( size ) 
-  constructionCost = 25000 + ( 75 * size ) 
+  constructionCost = ( 75 * size ) 
   return locationCostRatio * constructionCost + utilityCost
+
+def buildingSize(buildingCost, locationCost):
+  locationCostRatio = locationCost / realEstateAverage
+  utilities = ( 9.17 + 2.61 + 3.59 + 1.81 + 0.93 + 1.43 + 3.85 + 2.76 )
+  construction = 75
+  size = buildingCost / (locationCostRatio * construction + utilities)
+  
+  return size
 
 def storeCapacity(totalSize):
   dailyHours = 12
@@ -70,11 +60,26 @@ def storeCapacity(totalSize):
   capacityPerPerson = totalSize / 50 
   
   return capacityPerPerson * ( dailyHours / hoursPerTrip ) * tripsPerDay
+					# totalSize 1/50 * 12 * 60/43 * 7/1.6 
+  				# capacity = totalSize * 1.4651
+
+def storeSize(capacity):
+  dailyHours = 12
+  tripsPerDay = 7 / 1.6 #7 days divided by 1.6 trips per week
+  hoursPerTrip = 43 / 60
+  
+  return capacity / tripsPerDay / (dailyHours / hoursPerTrip) * 50
+  
+def capacityToCost(capacity, locationCost):
+    return buildingCostSize(storeSize(capacity), locationCost)
+
+def costToCapacity(buildingCost, locationCost):
+    return storeCapacity(buildingSize(buildingCost, locationCost))
   
 def hasAccess(householdIncome, distance):
-	walkingDistance, drivingDistance, lowIncomeThreshold = 0.745, distanceCap, 25000
+  walkingDistance, drivingDistance, lowIncomeThreshold = 0.745, distanceCap, 25000
   walkingScore = 1 if distance < walkingDistance else 0
-	carScore = 1 if distance < drivingDistance else 0
+  carScore = 1 if distance < drivingDistance else 0
   if householdIncome < lowIncomeThreshold:
     return 0.2 * walkingScore + 0.8 * carScore
   return carScore
@@ -83,64 +88,153 @@ def hasAccess(householdIncome, distance):
 # values is a list of tuples (x, y, accessScore) that can access it
 locationAccessCache = {}
   
-  
 def populationWithAccess(a, b):
   queue = collections.deque([(a, b, 0)])
   visited = set([a, b])
   results = []
-  totalCount, distanceTravelled = 0, 0
-  
+  n = len(distanceMap)
+  m = len(distanceMap[0])
   while queue: 
     x, y, distanceTravelled = queue.popleft()
-    # totalCount += populationDensityMap[x][y] * has_access(medianHouseholdIncomeMap[i][j], distanceTravelled)
+    if (x < 0 or y < 0 or x >= n or y >= m):
+      continue
     coordinates = [(x + 1, y), (x, y + 1), (x - 1, y), (x, y - 1)]
     diagonals = [(x + 1, y + 1), (x - 1, y + 1), (x + 1, y - 1), (x - 1, y - 1)]
     currentSize = distanceMap[x][y]
-    results.append([x, y, has_access(medianHouseholdIncomeMap[x][y], distanceTravelled)])
+    results.append([x, y, hasAccess(medianHouseholdIncomeMap[x][y], distanceTravelled)])
   	
     for i, j in coordinates:
-      if not ([i,j] in visited or i < 0 or j < 0 or i >= n or j >= n or distanceTravelled > (distanceCap + straightDistance)):
-        straightDistance = currentSize / 2 + distanceMap[i][j] / 2 
+      if (i < 0 or j < 0 or i >= n or j >= m or (i,j) in visited):
+        continue
+      straightDistance = currentSize / 2 + distanceMap[i][j] / 2 
+      if distanceTravelled + straightDistance <= distanceCap:
         queue.append((i, j, distanceTravelled + straightDistance))
-        visited.add([i, j])
+        visited.add((i, j))
     
     for i, j in diagonals:
-      if not ([i,j] in visited or i < 0 or j < 0 or i >= n or j >= n or distanceTravelled > (distanceCap + diagonalDistance)):
-        diagonalDistance = (2 * ((currentSize / 2) ** 2)) ** 0.5 + (2 * ((distanceMap[i][j] / 2) ** 2)) ** 0.5
+      if (i < 0 or j < 0 or i >= n or j >= m or (i,j) in visited):
+        continue
+      diagonalDistance = (2 * ((currentSize / 2) ** 2)) ** 0.5 + (2 * ((distanceMap[i][j] / 2) ** 2)) ** 0.5
+      if distanceTravelled + diagonalDistance <= distanceCap:
         queue.append((i, j, distanceTravelled + diagonalDistance))
-        visited.add([i, j])
-    locationAccessCache[[a,b]] = visited
-
+        visited.add((i, j))
+  locationAccessCache[(a,b)] = results
+  
 def populateCache():
   for i in range(len(populationDensityMap)):
-    for j in range(len(populactionDensityMap)):
+    for j in range(len(populationDensityMap[0])):
       populationWithAccess(i, j)
 
-# create descending list of location pairs in order of total population accessed, excluding duplicates between locations
 def findLocationPairs():
-	locationPairs = []
+  locationPairs = []
   seenPairs = set()
   for locationOne, accessedLocationsOne in locationAccessCache.items():
-    for locationTwo, accessedLocationsTwo in locationAccesCache.items():
+    for locationTwo, accessedLocationsTwo in locationAccessCache.items():
       if locationOne == locationTwo:
         continue
       if (locationOne, locationTwo) in seenPairs or (locationTwo, locationOne) in seenPairs:
         continue
-  		accessScoreMap = collections.defaultdict(int)
-      for accessedLocation in (accessedLocationsOne + accessedLocationsTwo):
-      	accessScoreMap[(accessedLocation[0],accesssedLocation[1])] = max(accessedLocation[2], accessScoreMap[(accessedLocation[0],accesssedLocation[1])])
-      totalAccessed = 0
-      for location, accessScore in accessScoreMap.items():
-        population = populationDensityMap[location[0]][location[1]] * (distanceMap[location[0]][location[1]] ** 2)* accessScore
-        totalAccessed += population if population > 0 else 0
-      locationPairs.append((locationOne, locationTwo), totalAccessed)
-    	seenPairs.add((locationOne, locationTwo))
-  locationPairs.sort(key = lambda x: x[1], reverse = True)
+      seenLocations = set()
+      onlyOne, onlyTwo, overlapped = 0, 0, 0
+      for accessedLocation in accessedLocationsOne:
+        if populationDensityMap[accessedLocation[0]][accessedLocation[1]] == -1:
+          continue
+        if (accessedLocation[0], accessedLocation[1], 0.8) in accessedLocationsTwo:
+          if accessedLocation[2] == 0.8:
+            overlapped += populationDensityMap[accessedLocation[0]][accessedLocation[1]] * (distanceMap[accessedLocation[0]][accessedLocation[1]] ** 2)*0.8
+          elif accessedLocation[2] == 1:
+            overlapped += populationDensityMap[accessedLocation[0]][accessedLocation[1]] * (distanceMap[accessedLocation[0]][accessedLocation[1]] ** 2)*0.8
+            onlyOne += populationDensityMap[accessedLocation[0]][accessedLocation[1]] * (distanceMap[accessedLocation[0]][accessedLocation[1]] ** 2)*0.2
+        elif (accessedLocation[0], accessedLocation[1], 1) in accessedLocationsTwo:
+          if accessedLocation[2] == 0.8: 
+            overlapped += populationDensityMap[accessedLocation[0]][accessedLocation[1]] * (distanceMap[accessedLocation[0]][accessedLocation[1]] ** 2)*0.8
+            onlyTwo += populationDensityMap[accessedLocation[0]][accessedLocation[1]] * (distanceMap[accessedLocation[0]][accessedLocation[1]] ** 2)*0.2
+          elif accessedLocation[2] == 1:
+            overlapped += populationDensityMap[accessedLocation[0]][accessedLocation[1]] * (distanceMap[accessedLocation[0]][accessedLocation[1]] ** 2)
+        else:
+          onlyOne += populationDensityMap[accessedLocation[0]][accessedLocation[1]] * (distanceMap[accessedLocation[0]][accessedLocation[1]] ** 2)*accessedLocation[2]
+        seenLocations.add((accessedLocation[0], accessedLocation[1]))
+      for accessedLocation in accessedLocationsTwo:
+        if populationDensityMap[accessedLocation[0]][accessedLocation[1]] == -1:
+          continue
+        if (accessedLocation[0], accessedLocation[1]) in seenLocations:
+          continue
+        onlyTwo += populationDensityMap[accessedLocation[0]][accessedLocation[1]] * (distanceMap[accessedLocation[0]][accessedLocation[1]] ** 2)*accessedLocation[2]
+      locationPairs.append((locationOne, locationTwo, onlyOne, onlyTwo, overlapped, onlyOne+onlyTwo+overlapped))
+      seenPairs.add((locationOne, locationTwo))
+  locationPairs.sort(key = lambda x: x[5], reverse = True)
   return locationPairs
-
-def findOptimalPair():
-  locationPairs = findLocationPairs() 
+  
+  
+def findOptimalPair(locationPairs):
+  maxAccess = 0
+  bestPair = []
+  count = 0
+  for locationData in locationPairs:
+    count += 1
+    curAccess = 0
+    locationOne, locationTwo, accessOne, accessTwo, overlap, total = locationData
+    if maxAccess > total:
+        print(count)
+        return bestPair, maxAccess
+    costA, costB = realEstatePriceMap[locationOne[0]][locationOne[1]], realEstatePriceMap[locationTwo[0]][locationTwo[1]]
+    budgetLeft = budget - buildingCostBase(costA) - buildingCostBase(costB)
+    if costA < costB:
+        accessOne += overlap
+        # check cheap location
+        if costToCapacity(budgetLeft, costA) > accessOne:
+            # enough money
+            curAccess += accessOne
+            budgetLeft -= capacityToCost(accessOne, costA)
+        else:
+            # not enough money
+            maxAccess = max(costToCapacity(budgetLeft, costA), maxAccess)
+            if curAccess == maxAccess: 
+                bestPair = [locationOne, locationTwo]
+            continue
+        # check expensive location
+        if costToCapacity(budgetLeft, costB) > accessTwo:
+            # enough money
+            curAccess += accessTwo
+            budgetLeft -= capacityToCost(accessTwo, costB)
+        else:
+            # not enough money
+            curAccess += costToCapacity(budgetLeft, costB)
+        maxAccess = max(curAccess, maxAccess)
+        if curAccess == maxAccess: 
+            bestPair = [locationOne, locationTwo]
+    
+    else:
+      	# check cheap location
+        accessTwo += overlap
+        if costToCapacity(budgetLeft, costB) > accessTwo:
+            # enough money
+            curAccess += accessTwo
+            budgetLeft -= capacityToCost(accessTwo, costB)
+        else:
+            # not enough money
+            maxAccess = max(costToCapacity(budgetLeft, costB), maxAccess)
+            if curAccess == maxAccess: 
+                bestPair = [locationOne, locationTwo]
+            continue
+    		# check expensive location
+        if costToCapacity(budgetLeft, costA) > accessOne:
+            # enough money
+            curAccess += accessOne
+            budgetLeft -= capacityToCost(accessOne, costA)
+        else:
+            curAccess += costToCapacity(budgetLeft, costA)
+        maxAccess = max(curAccess, maxAccess)
+        if curAccess == maxAccess: 
+            bestPair = [locationOne, locationTwo]
+  print(count)
+  return bestPair, maxAccess
   
 def main():
   populateCache()
-
+  locationPairs = findLocationPairs()
+  print(len(locationPairs))
+  return findOptimalPair(locationPairs)
+  
+optimalPair, maxAccess = main()
+print(optimalPair, maxAccess)
